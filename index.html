@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad By Ecommerce</title>
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #121212; /* Dark Background */
+            color: #ffffff;
+        }
+
+        /* Top Navigation Bar */
+        .top-bar {
+            background-color: #1a1a1a;
+            padding: 15px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: #ff4757; } /* Red */
+        .logo span2 { color: #1e90ff; } /* Blue */
+        .logo span3 { color: #2ed573; } /* Green */
+
+        .search-bar {
+            flex: 1;
+            max-width: 600px;
+            display: flex;
+            margin: 0 30px;
+            background: #2d2d2d;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            background: transparent;
+            color: white;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .search-bar button {
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .search-bar button:hover { background-color: #0066cc; }
+
+        .nav-icons a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-icons a:hover { color: #fff; }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #1e90ff 0%, #ff4757 100%);
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero-banner h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero-banner p {
+            font-size: 18px;
+            color: #f0f0f0;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 12px;
+            height: fit-content;
+            border: 1px solid #333;
+        }
+
+        .sidebar h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .sidebar ul { list-style: none; }
+        .sidebar ul li { margin-bottom: 15px; }
+        
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #aaa;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            color: #1e90ff;
+            padding-left: 5px;
+        }
+
+        /* Products Grid */
+        .products-section { flex: 1; }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 25px;
+        }
+
+        /* Product Card */
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(30, 144, 255, 0.2);
+            border-color: #1e90ff;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 10px;
+            height: 45px;
+            overflow: hidden;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ff4757;
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            background-color: #1e90ff;
+            color: white;
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 8px;
+            display: inline-block;
+            font-size: 15px;
+            font-weight: 600;
+            width: 100%;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .buy-btn:hover { background-color: #0066cc; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #1a1a1a;
+            border-top: 1px solid #333;
+            margin-top: 60px;
+            color: #777;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .container { flex-direction: column; }
+            .sidebar { width: 100%; }
+            .search-bar { display: none; } /* Mobile pe search bar chup jayega */
+            .hero-banner h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-bar">
+        <a href="#" class="logo">Ahmad<span>By</span><span2>E</span2><span3>commerce</span3></a>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products, brands and more...">
+            <button>Search</button>
+        </div>
+
+        <div class="nav-icons">
+            <a href="#">👤 Sign In</a>
+            <a href="#">🛒 Cart (0)</a>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <h1>Welcome to Ahmad By Ecommerce</h1>
+        <p>Best Deals on Premium Products. Shop Now!</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        
+        <!-- Sidebar Categories -->
+        <div class="sidebar">
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="#">📱 Mobile Phones</a></li>
+                <li><a href="#">💻 Laptops</a></li>
+                <li><a href="#">⌚ Watches</a></li>
+                <li><a href="#">👟 Shoes</a></li>
+                <li><a href="#">🎒 Bags</a></li>
+                <li><a href="#">🎧 Audio</a></li>
+                <li><a href="#">🎮 Gaming</a></li>
+            </ul>
+        </div>
+
+        <!-- Products Area -->
+        <div class="products-section">
+            <h2 class="section-title">🔥 Trending Deals</h2>
+            
+            <div class="grid">
+                
+                <!-- Product 1 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="Shoes">
+                    <h3>Nike Stylish Running Shoes</h3>
+                    <p class="price">Rs. 2,500</p>
+                    <!-- Yahan apna WhatsApp number dalein (92 ke sath) -->
+                    <a href="https://wa.me/923001234567?text=Mujhe%20Nike%20Shoes%20chahiye" class="buy-btn" target="_blank">Buy Now</a>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80" alt="Watch">
+                    <h3>Luxury Leather Watch</h3>
+                    <p class="price">Rs. 1,800</p>
+                    <a href="https://wa.me/923001234567?text=Mujhe%20Watch%20chahiye" class="buy-btn" target="_blank">Buy Now</a>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80" alt="Headphones">
+                    <h3>Wireless Bluetooth Headphones</h3>
+                    <p class="price">Rs. 4,000</p>
+                    <a href="https://wa.me/923001234567?text=Mujhe%20Headphones%20chahiye" class="buy-btn" target="_blank">Buy Now</a>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80" alt="Phone">
+                    <h3>Smartphone 128GB Pro Max</h3>
+                    <p class="price">Rs. 45,000</p>
+                    <a href="https://wa.me/923001234567?text=Mujhe%20Phone%20chahiye" class="buy-btn" target="_blank">Buy Now</a>
+                </div>
+
+                <!-- Product 5 (New) -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&q=80" alt="Laptop">
+                    <h3>MacBook Pro 14 inch</h3>
+                    <p class="price">Rs. 250,000</p>
+                    <a href="https://wa.me/923001234567?text=Mujhe%20Laptop%20chahiye" class="buy-btn" target="_blank">Buy Now</a>
+                </div>
+
+                <!-- Product 6 (New) -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?w=400&q=80" alt="Bag">
+                    <h3>Leather Travel Bag</h3>
+                    <p class="price">Rs. 3,500</p>
+                    <a href="https://wa.me/923001234567?text=Mujhe%20Bag%20chahiye" class="buy-btn" target="_blank">Buy Now</a>
+                </div>
+
+                <!-- Product 7 (New) -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=400&q=80" alt="Mouse">
+                    <h3>Gaming Mouse RGB</h3>
+                    <p class="price">Rs. 1,200</p>
+                    <a href="https://wa.me/923001234567?text=Mujhe%20Mouse%20chahiye" class="buy-btn" target="_blank">Buy Now</a>
+                </div>
+
+                <!-- Product 8 (New) -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&q=80" alt="Sunglasses">
+                    <h3>Premium Sunglasses</h3>
+                    <p class="price">Rs. 800</p>
+                    <a href="https://wa.me/923001234567?text=Mujhe%20Sunglasses%20chahiye" class="buy-btn" target="_blank">Buy Now</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Ahmad By Ecommerce. Designed with ❤️</p>
+    </footer>
+
+</body>
+</html>
